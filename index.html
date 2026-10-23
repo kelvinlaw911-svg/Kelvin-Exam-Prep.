@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111827">
+  <title>Kelvin Exam Prep</title>
+  <style>
+    :root { --ink:#111827; --muted:#6b7280; --paper:#f3f4f6; --white:#fff; --accent:#2563eb; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:Arial,Helvetica,sans-serif; background:var(--paper); color:var(--ink); min-height:100vh; }
+    header { background:var(--ink); color:white; padding:28px 18px; text-align:center; }
+    header h1 { font-size:clamp(25px,5vw,32px); margin-bottom:7px; }
+    header p { opacity:.85; }
+    main { width:min(900px,92%); margin:auto; padding:26px 0 38px; }
+    .welcome { text-align:center; margin-bottom:24px; }
+    .welcome h2 { font-size:25px; margin-bottom:8px; }
+    .welcome p,.muted { color:var(--muted); line-height:1.5; }
+    .subjects { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; }
+    button { font:inherit; cursor:pointer; }
+    .subject-card { border:0; background:white; border-radius:17px; padding:22px 12px; min-height:155px; box-shadow:0 4px 15px #00000010; text-align:center; color:var(--ink); }
+    .subject-card:focus-visible,.primary:focus-visible,.back:focus-visible { outline:3px solid #93c5fd; outline-offset:3px; }
+    .subject-card .icon { display:block; font-size:38px; margin-bottom:10px; }
+    .subject-card strong { display:block; font-size:20px; margin-bottom:6px; }
+    .subject-card small { color:var(--muted); }
+    .features { display:grid; gap:11px; margin-top:24px; }
+    .feature { display:flex; gap:13px; align-items:flex-start; background:white; padding:16px; border-radius:13px; }
+    .feature .emoji { font-size:25px; }
+    .feature h3 { font-size:16px; margin-bottom:4px; }
+    .feature p { color:var(--muted); font-size:14px; line-height:1.45; }
+    .back { border:0; background:var(--ink); color:white; padding:10px 14px; border-radius:9px; margin-bottom:20px; }
+    .subject-heading { text-align:center; margin-bottom:20px; }
+    .subject-heading h2 { font-size:27px; margin-bottom:7px; }
+    .panel { background:white; border-radius:16px; padding:22px; box-shadow:0 4px 15px #0000000d; }
+    .panel h3 { margin-bottom:10px; }
+    .topic-list { display:grid; gap:10px; margin-top:16px; }
+    .topic-item { padding:13px; border:1px solid #e5e7eb; border-radius:10px; }
+    .notice { background:#eff6ff; border-radius:12px; padding:14px; margin-top:16px; color:#1e40af; line-height:1.5; font-size:14px; }
+    footer { text-align:center; color:var(--muted); padding:20px; font-size:13px; }
+    .hidden { display:none !important; }
+    @media(max-width:560px) { .subjects { grid-template-columns:1fr; } .subject-card { min-height:125px; } main { padding-top:22px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kelvin Exam Prep</h1>
+    <p>JAMB 2027 Preparation</p>
+  </header>
+
+  <main>
+    <section id="home">
+      <div class="welcome">
+        <h2>Choose a Subject</h2>
+        <p>Study by subject and topic, practise regularly, and work towards your JAMB goal.</p>
+      </div>
+      <div class="subjects">
+        <button class="subject-card" data-subject="Biology"><span class="icon">🧬</span><strong>Biology</strong><small>JAMB syllabus & practice</small></button>
+        <button class="subject-card" data-subject="Chemistry"><span class="icon">⚗️</span><strong>Chemistry</strong><small>JAMB syllabus & practice</small></button>
+        <button class="subject-card" data-subject="Physics"><span class="icon">⚡</span><strong>Physics</strong><small>JAMB syllabus & practice</small></button>
+        <button class="subject-card" data-subject="Use of English"><span class="icon">📖</span><strong>Use of English</strong><small>JAMB syllabus & practice</small></button>
+      </div>
+      <div class="features">
+        <div class="feature"><span class="emoji">📝</span><div><h3>Topic-based practice</h3><p>Practice questions, answers and explanations will be organised by syllabus topic.</p></div></div>
+        <div class="feature"><span class="emoji">🎯</span><div><h3>CBT practice</h3><p>A timed CBT mode and mixed-subject tests are planned for a later stage.</p></div></div>
+        <div class="feature"><span class="emoji">📊</span><div><h3>Progress tracking</h3><p>Scores, bookmarks and revision of missed questions will be added in later stages.</p></div></div>
+      </div>
+    </section>
+
+    <section id="subjectPage" class="hidden">
+      <button class="back" id="backButton">← Back to subjects</button>
+      <div class="subject-heading">
+        <h2 id="subjectTitle">Subject</h2>
+        <p class="muted">Choose a study area</p>
+      </div>
+      <div class="panel">
+        <h3 id="topicIntro">Your subject workspace</h3>
+        <p class="muted">This is the starter version. The full syllabus, revision notes and question banks will be added in the next stages.</p>
+        <div class="topic-list">
+          <div class="topic-item"><strong>📚 Syllabus topics</strong><p class="muted">Organise learning topic by topic.</p></div>
+          <div class="topic-item"><strong>✍️ Core practice</strong><p class="muted">Answer multiple-choice questions and review explanations.</p></div>
+          <div class="topic-item"><strong>⭐ Extra practice</strong><p class="muted">Build confidence with additional original JAMB-style questions.</p></div>
+          <div class="topic-item"><strong>🧪 CBT mode</strong><p class="muted">Timed tests and result summaries will be added later.</p></div>
+        </div>
+        <div class="notice">Starter layout only — these sections are not yet connected to a complete question bank. We will build them in stages and check the 2027 JAMB syllabus when officially available.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>Kelvin Exam Prep • JAMB 2027</footer>
+
+  <script>
+    const home = document.getElementById('home');
+    const subjectPage = document.getElementById('subjectPage');
+    const subjectTitle = document.getElementById('subjectTitle');
+
+    document.querySelectorAll('[data-subject]').forEach(button => {
+      button.addEventListener('click', () => {
+        const subject = button.dataset.subject;
+        subjectTitle.textContent = subject;
+        document.getElementById('topicIntro').textContent = subject + ' workspace';
+        home.classList.add('hidden');
+        subjectPage.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    document.getElementById('backButton').addEventListener('click', () => {
+      subjectPage.classList.add('hidden');
+      home.classList.remove('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
